@@ -1,0 +1,44 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ChatBubbleAvalonia">
+	<Setter Property="Template">
+		<Setter.Value>
+			<ControlTemplate TargetType="local|ChatBubbleCustomControl">
+				<Grid RenderTransformOrigin="0.5,0.5">
+					<Grid.RenderTransform>
+						<ScaleTransform ScaleX="{TemplateBinding ScaleFactor}" ScaleY="{TemplateBinding ScaleFactor}" />
+					</Grid.RenderTransform>
+					<Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        MaxWidth="{TemplateBinding MaxWidth}"
+                        MaxHeight="{TemplateBinding MaxHeight}"
+                        Padding="10">
+						<Grid>
+							<ControlTemplate>
+								<Grid>
+									<!-- Bubble Tail -->
+									<Path Name="Tail" Fill="LightBlue" Data="M0,0 L12,12 L0,24 Z" />
+
+									<!-- Bubble Body -->
+									<Border Background="LightBlue" CornerRadius="12">
+										<TextBlock Text="Static Text"
+												   HorizontalAlignment="Center"
+												   VerticalAlignment="Center" />
+									</Border>
+								</Grid>
+							</ControlTemplate>
+							<Path
+                                Fill="{TemplateBinding Background}"
+                                HorizontalAlignment="{Binding TailOnRight, Converter={StaticResource BooleanToHorizontalAlignmentConverter}}"
+                                Data="M 0,0 L 10,10 L 20,0 Z"
+                                Margin="{Binding TailOnRight, Converter={StaticResource BooleanToMarginConverter}}" />
+						</Grid>
+					</Border>
+				</Grid>
+			</ControlTemplate>
+		</Setter.Value>
+	</Setter>
+</Styles>

@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:ChatBubbleAvalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ChatBubbleAvalonia.MainWindow"
+        Title="ChatBubbleAvalonia">
+	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+		
+		<local:ChatBubble Background="LightGreen"  Content="Dynamic text loading for this control" 
+						  TailOrientation="Left"  CornerRadius="0"  Height="100">
+		</local:ChatBubble>
+		<local:ChatBubble Background="Pink"
+                  CornerRadius="12"
+						  Margin="20"
+                  TailOrientation="Right">
+			<StackPanel >
+				<StackPanel Orientation="Horizontal">
+				<Image Source="resm:Avalonia.Skia.Assets.NoiseAsset_256X256_PNG.png?assembly=Avalonia.Skia" Width="30" Height="30"/>
+				<TextBlock Text="Title" FontWeight="Bold" />
+				</StackPanel>
+				<TextBlock Text="This is a detailed message." />
+			</StackPanel>
+		</local:ChatBubble>
+		
+
+	</StackPanel>
+</Window>
